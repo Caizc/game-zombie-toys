@@ -1,136 +1,128 @@
-﻿//This script controls the health functions of the enemies. This script also is responsible for turning
-//the enemy movement and attack off in the event of the enemy being defeated. Since the enemies aren't destroyed after
-//being defeated (they are just disabled since the game maintains 'pools' or collections of enemies) there is
-//code in place to reset the values of the enemies when they respawn
-
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-	[HideInInspector] public EnemySpawner Spawner;		//A Reference to the spawner that created this enemy
+    [HeaderAttribute("Health Properties")]
+    [SerializeField]
+    int maxHealth = 100;
+    [SerializeField]
+    int scoreValue = 10;
 
-	[Header("Health Properties")]
-	[SerializeField] int maxHealth = 100;				//How much health this enemy has
-	[SerializeField] int scoreValue = 10; 				//How many points this enemy is worth
+    [HeaderAttribute("Defeated Effects")]
+    [SerializeField]
+    float sinkSpeed = 2.5f;
+    [SerializeField]
+    float deathEffectTime = 2f;
+    [SerializeField]
+    AudioClip deathClip = null;
+    [SerializeField]
+    AudioClip hurtClip = null;
 
-	[Header("Defeated Effects")]
-	[SerializeField] float sinkSpeed = 2.5f;			//How fast the enemy sinks into the ground		
-	[SerializeField] float deathEffectTime = 2f;		//How long it takes the enemy to play its full death sequence before being deactivated
-	[SerializeField] AudioClip deathClip = null;		//Audio clip of the death sound of the enemy
-	[SerializeField] AudioClip hurtClip = null;			//Audio clip of the hurt sound of the enemy
+    [HeaderAttribute("Script References")]
+    [SerializeField]
+    EnemyMovement enemyMovement;
+    [SerializeField]
+    EnemyAttack enemyAttack;
 
-	[Header("Script References")]
-	[SerializeField] EnemyAttack enemyAttack;			//Reference to the enemy's attack script
-	[SerializeField] EnemyMovement enemyMovement;		//Reference to the enemy's movement script
+    [HeaderAttribute("Components")]
+    [SerializeField]
+    Animator animator;
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    CapsuleCollider capsuleCollider;
+    [SerializeField]
+    ParticleSystem hitParticles;
 
-	[Header("Components")]
-	[SerializeField] Animator animator;					//Reference to the animator component
-	[SerializeField] AudioSource audioSource;			//Reference to the audio source component
-	[SerializeField] CapsuleCollider capsuleCollider;	//Reference to the capsule collider component
-	[SerializeField] ParticleSystem hitParticles;		//Reference to the particle system on the hit particles game object
+    [HeaderAttribute("Debugging Properties")]
+    bool isInvulnerable;
 
-	[Header("Debugging Properties")]
-	[SerializeField] bool isInvulnerable;				//Is the enemy immune to all damage?
+    [SerializeField]
+    int currentHealth;
+    bool isSinking;
 
-	int currentHealth;									//Current health amount of enemy
-	bool isSinking;										//Is the enemy currently sinking?
+    void Reset()
+    {
+        enemyMovement = GetComponent<EnemyMovement>();
+        enemyAttack = GetComponent<EnemyAttack>();
 
-	//Reset() defines the default values for properties in the inspector
-	void Reset ()
-	{
-		//Grab references to all of the needed enemy components
-		enemyAttack = GetComponent<EnemyAttack>();
-		enemyMovement = GetComponent<EnemyMovement>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        hitParticles = GetComponentInChildren<ParticleSystem>();
+    }
 
-		animator = GetComponent <Animator> ();
-		audioSource = GetComponent <AudioSource> ();
-		capsuleCollider = GetComponent <CapsuleCollider> ();
-		//Get the hit particles component from a child object
-		hitParticles = GetComponentInChildren <ParticleSystem> ();
-	}
+    void OnEnable()
+    {
+        currentHealth = maxHealth;
+        isSinking = false;
+        capsuleCollider.isTrigger = false;
 
-	//When this game object is enabled...
-	void OnEnable ()
-	{
-		//...reset the health, isSinking, and make the capsule collider solid again (it is 
-		//turned into a trigger so the enemy can sink through the ground)
-		currentHealth = maxHealth;
-		isSinking = false;
-		capsuleCollider.isTrigger = false;
+        if (null != audioSource)
+        {
+            audioSource.clip = hurtClip;
+        }
+    }
 
-		//If there is an audio source, set the clip to the hurt sound
-		if(audioSource != null)
-			audioSource.clip = hurtClip;
-	}
+    void Update()
+    {
+        if (isSinking)
+        {
+            transform.Translate(Vector3.down * sinkSpeed * Time.deltaTime);
+        }
+    }
 
-	void Update()
-	{
-		//If the enemy isn't currently sinking, return
-		if(!isSinking)
-			return;
-		//If the enemy is sinking, move downward along the -Y axis
-		transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
-	}
+    public void TakeDamage(int amount)
+    {
+        if (currentHealth <= 0 || isInvulnerable)
+        {
+            return;
+        }
+        else
+        {
+            currentHealth -= amount;
 
-	//This method is called whenever the enemy is damaged by an attack
-	public void TakeDamage(int amount)
-	{
-		//If the enemy is already defeated or is invulnerable, leave
-		if (currentHealth <= 0 || isInvulnerable)
-			return;
+            if (currentHealth <= 0)
+            {
+                Defeated();
+            }
 
-		//Reduce the current health by the amount of damage
-		currentHealth -= amount;
+            if (null != audioSource)
+            {
+                audioSource.Play();
+            }
 
-		//If the current health is now at or below 0, the enemy is defeated
-		if (currentHealth <= 0)
-			Defeated();
+            hitParticles.Play();
+        }
+    }
 
-		//If there is an audio source, play it
-		if(audioSource != null)
-			audioSource.Play();
-		//Play the hit particle effect
-		hitParticles.Play();
-	}
+    void Defeated()
+    {
+        capsuleCollider.isTrigger = true;
 
-	//Called when the enemy health is reduce to 0 or lower
-	void Defeated()
-	{
-		//Capsule collider becomes a trigger to that the enemy can sink into the ground and so that
-		//this collider won't interfere with player attacks
-		capsuleCollider.isTrigger = true;
+        animator.enabled = true;
+        animator.SetTrigger("Dead");
 
-		//Enabled the animator (in case it was disabled by a frost debuff)
-		animator.enabled = true;
-		//Trigger the "Dead" parameter of the animator
-		animator.SetTrigger("Dead");
+        if (null != audioSource)
+        {
+            audioSource.clip = deathClip;
+        }
 
-		//If there is an audio source, set its clip to the death sound
-		if(audioSource != null)
-			audioSource.clip = deathClip;
+        enemyMovement.Defeated();
+        enemyAttack.Defeated();
 
-		//Tell the attack and movement script that the enemy has been defeated
-		enemyAttack.Defeated();
-		enemyMovement.Defeated();
+        GameManager.instance.AddScore(scoreValue);
 
-		//Tell the game manager to give the player some points
-		GameManager.Instance.AddScore(scoreValue);
-		//Call the TurnOff() method after a period of time
-		Invoke("TurnOff", deathEffectTime);
-	}
+        Invoke("TurnOff", deathEffectTime);
+    }
 
-	//Called once the enemy's "defeated" effects have finished playing
-	void TurnOff()
-	{
-		//Disable the game object
-		gameObject.SetActive(false);
-	}
+    void TurnOff()
+    {
+        gameObject.SetActive(false);
+    }
 
-	// Accessed from an event in the enemy's Death animation
-	public void StartSinking()
-	{
-		//The enemy is now sinking
-		isSinking = true;
-	}
+    public void StartSinking()
+    {
+        isSinking = true;
+    }
 }
-

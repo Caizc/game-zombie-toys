@@ -163,8 +163,8 @@ QualitySettings:
     asyncUploadBufferSize: 4
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
-    Android: 0
-    Standalone: 0
+    Android: 3
+    Standalone: 5
     Web: 0
-    WebGL: 0
+    WebGL: 3
     iPhone: 0

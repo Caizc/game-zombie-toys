@@ -88,7 +88,7 @@ AudioSource:
   m_GameObject: {fileID: 186642}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300004, guid: 8434b04884c414ac6b468e10945685e6,
+  OutputAudioMixerGroup: {fileID: 243269280258796658, guid: 978c93d2a26ece94c922441e28692dbd,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 776c6a76b1ad6450aaeeecfee2e869cb, type: 3}
   m_PlayOnAwake: 1
@@ -169,37 +169,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 186642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4e0060c2dc100f4e83a7d76907a5091, type: 3}
+  m_Script: {fileID: 11500000, guid: 784c7db71add891428d89b1d5c0b918d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   arc:
     serializedVersion: 2
     m_Curve:
-    - time: 0.00000095157156
-      value: 0.0000138262985
-      inSlope: 1.250883
-      outSlope: 1.250883
-      tangentMode: 10
-    - time: 0.7994252
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1.4285715
+      outSlope: 1.4285715
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 0.7
       value: 1
-      inSlope: -0.060324907
-      outSlope: -0.060324907
-      tangentMode: 0
-    - time: 0.8967965
-      value: 0.85
-      inSlope: -4.88826
-      outSlope: -4.88826
-      tangentMode: 10
-    - time: 0.9999976
-      value: 0.00003313832
-      inSlope: -8.236026
-      outSlope: -8.236026
-      tangentMode: 10
+      inSlope: 0.02773887
+      outSlope: 0.02773887
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 0.8681665
+      value: 0.7690916
+      inSlope: -3.603452
+      outSlope: -3.603452
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: -5.8338103
+      outSlope: -5.8338103
+      tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  trailParticles: {fileID: 19805226}
+  trailPartiles: {fileID: 19805226}
   stinkHit: {fileID: 0}
 --- !u!135 &13592802
 SphereCollider:

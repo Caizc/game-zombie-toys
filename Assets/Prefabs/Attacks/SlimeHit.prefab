@@ -35,7 +35,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &457518
 Transform:
   m_ObjectHideFlags: 1
@@ -71,7 +71,7 @@ AudioSource:
   m_GameObject: {fileID: 152514}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300004, guid: 8434b04884c414ac6b468e10945685e6,
+  OutputAudioMixerGroup: {fileID: 243269280258796658, guid: 978c93d2a26ece94c922441e28692dbd,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a66edea1949a2489d8b363346132e796, type: 3}
   m_PlayOnAwake: 0
@@ -131,7 +131,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 152514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f1b143b9e89f14e84dc3a5dc89edda, type: 3}
+  m_Script: {fileID: 11500000, guid: 42cc5348f4122f640beee3d9f587fddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleEffect: {fileID: 19850742}
@@ -212,7 +212,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -1216572532
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2771,7 +2771,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 2023235018
   InitialModule:
     serializedVersion: 3
     enabled: 1

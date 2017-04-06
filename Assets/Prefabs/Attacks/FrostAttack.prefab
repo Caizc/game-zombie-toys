@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.123, y: -0.948, z: -1.019}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452228}
@@ -193,7 +193,7 @@ AudioSource:
   m_GameObject: {fileID: 190522}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300004, guid: 8434b04884c414ac6b468e10945685e6,
+  OutputAudioMixerGroup: {fileID: 243269280258796658, guid: 978c93d2a26ece94c922441e28692dbd,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 57728ad878f8d4a6489f4a16542e3324, type: 3}
   m_PlayOnAwake: 1
@@ -274,12 +274,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 139510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d6f60a725b609c4090b1e5427172de1, type: 3}
+  m_Script: {fileID: 11500000, guid: fb77d9bac7873174ab350e7fe831f0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFreezableEnemies: 20
+  maxFreezableEnemies: 10
   frostDebuffPrefab: {fileID: 175218, guid: 14a9b8ffe62164045bc23b9b8d82afb7, type: 2}
-  frostCone: {fileID: 115064}
+  frostCone: {fileID: 190522}
   frostArc: {fileID: 6414116}
 --- !u!198 &19827884
 ParticleSystem:
@@ -336,7 +336,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -614010298
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2979,7 +2979,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 30109200
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5562,7 +5562,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -1584621002
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8157,7 +8157,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 1882932607
   InitialModule:
     serializedVersion: 3
     enabled: 1

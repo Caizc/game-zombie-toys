@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    [HideInInspector]
+    public SlimeDebuff slimeDebuff;
+
     [SerializeField]
     float timeBetweenAttacks = 0.5f;
     [SerializeField]
@@ -11,7 +14,7 @@ public class EnemyAttack : MonoBehaviour
     Animator animator;
 
     bool canAttack;
-    bool playerInRange = false;
+    bool playerInRange;
     WaitForSeconds attackDelay;
 
     void Reset()
@@ -26,6 +29,7 @@ public class EnemyAttack : MonoBehaviour
 
     void OnEnable()
     {
+        slimeDebuff = null;
         canAttack = true;
         StartCoroutine(AttackPlayer());
     }
@@ -57,7 +61,7 @@ public class EnemyAttack : MonoBehaviour
 
         while (canAttack && CheckPlayerStatus())
         {
-            if (playerInRange)
+            if (playerInRange && null == slimeDebuff)
             {
                 GameManager.instance.player.TakeDamage(attackDamage);
             }
@@ -85,5 +89,10 @@ public class EnemyAttack : MonoBehaviour
     public void Defeated()
     {
         canAttack = false;
+
+        if (null != slimeDebuff)
+        {
+            slimeDebuff.ReleaseEnemy();
+        }
     }
 }

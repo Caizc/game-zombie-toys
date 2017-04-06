@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 437850}
-  - 114: {fileID: 11499056}
+  - component: {fileID: 437850}
+  - component: {fileID: 114436151421154650}
   m_Layer: 0
   m_Name: Character Selection Spotlights
   m_TagString: Untagged
@@ -21,10 +21,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 429212}
-  - 108: {fileID: 10803166}
+  - component: {fileID: 429212}
+  - component: {fileID: 10803166}
   m_Layer: 0
   m_Name: Spot 1
   m_TagString: Untagged
@@ -37,10 +37,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 465874}
-  - 108: {fileID: 10847946}
+  - component: {fileID: 465874}
+  - component: {fileID: 10847946}
   m_Layer: 0
   m_Name: Spot 2
   m_TagString: Untagged
@@ -53,9 +53,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 429360}
+  - component: {fileID: 429360}
   m_Layer: 0
   m_Name: Select spots mobile
   m_TagString: Untagged
@@ -68,11 +68,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 462212}
-  - 108: {fileID: 10847406}
-  - 114: {fileID: 11402860}
+  - component: {fileID: 462212}
+  - component: {fileID: 10847406}
+  - component: {fileID: 114665868406128004}
   m_Layer: 0
   m_Name: Select spot PC
   m_TagString: Untagged
@@ -92,6 +92,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429360}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &429360
 Transform:
   m_ObjectHideFlags: 1
@@ -106,6 +107,7 @@ Transform:
   - {fileID: 465874}
   m_Father: {fileID: 437850}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &437850
 Transform:
   m_ObjectHideFlags: 1
@@ -120,6 +122,7 @@ Transform:
   - {fileID: 429360}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &462212
 Transform:
   m_ObjectHideFlags: 1
@@ -132,6 +135,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 437850}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &465874
 Transform:
   m_ObjectHideFlags: 1
@@ -144,6 +148,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429360}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &10803166
 Light:
   m_ObjectHideFlags: 1
@@ -151,7 +156,7 @@ Light:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130068}
   m_Enabled: 1
-  serializedVersion: 6
+  serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2.5
@@ -161,6 +166,7 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
+    m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
@@ -173,10 +179,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!108 &10847406
 Light:
   m_ObjectHideFlags: 1
@@ -184,7 +190,7 @@ Light:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183520}
   m_Enabled: 1
-  serializedVersion: 6
+  serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2.5
@@ -194,6 +200,7 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
+    m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
@@ -206,10 +213,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!108 &10847946
 Light:
   m_ObjectHideFlags: 1
@@ -217,7 +224,7 @@ Light:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130228}
   m_Enabled: 1
-  serializedVersion: 6
+  serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2.5
@@ -227,6 +234,7 @@ Light:
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
+    m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
@@ -239,34 +247,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
---- !u!114 &11402860
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 183520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e4cfa7a75cd4ec6904a2fdbac07633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11499056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e9083a54bcb43ae8976d83c7e3c22d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spotlightPC: {fileID: 183520}
-  spotlightMobile: {fileID: 168978}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -278,3 +262,27 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104310}
   m_IsPrefabParent: 1
+--- !u!114 &114436151421154650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c99272a5a8b97842b361adf434a2258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spotlightPC: {fileID: 183520}
+  spotlightMobile: {fileID: 168978}
+--- !u!114 &114665868406128004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2aa9a9c84ea368429cb777b6b6d958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

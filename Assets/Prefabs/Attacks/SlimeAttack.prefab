@@ -70,15 +70,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 194102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a33c04a8d23803469f4cbc0b3c499f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 34602ababe1def649ab138b98e71e806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 3.5
+  cooldown: 3.5
   whatIsShootable:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   slimeProjectile: {fileID: 0}
-  targetReticule: {fileID: 19961396}
+  targetReticule: {fileID: 0}
   invalidTargetTint: {r: 1, g: 0, b: 0, a: 1}
   notReadyTint: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   readyTint: {r: 0, g: 1, b: 0, a: 1}
@@ -137,7 +137,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -890392815
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2786,7 +2786,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: -1519788495
   InitialModule:
     serializedVersion: 3
     enabled: 1

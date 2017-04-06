@@ -7,26 +7,40 @@ public class PlayerInputPC : MonoBehaviour
     PlayerMovement playerMovement;
     [SerializeField]
     PlayerAttack playerAttack;
+    [SerializeField]
+    PauseMenu pauseMenu;
 
     void Reset()
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttack>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     void Update()
     {
+        if (null != pauseMenu && Input.GetButtonDown("Cancel"))
+        {
+            pauseMenu.Pause();
+        }
+
         if (!CanUpdate())
         {
             return;
         }
 
-        Move();
-        Attack();
+        HandleMoveInput();
+        HandleAttackInput();
+        HandleAllyInput();
     }
 
     bool CanUpdate()
     {
+        if (null != pauseMenu && pauseMenu.isPaused)
+        {
+            return false;
+        }
+
         if (null == GameManager.instance.player || GameManager.instance.player.transform != transform)
         {
             return false;
@@ -35,7 +49,7 @@ public class PlayerInputPC : MonoBehaviour
         return true;
     }
 
-    void Move()
+    void HandleMoveInput()
     {
         if (null == playerMovement)
         {
@@ -54,11 +68,16 @@ public class PlayerInputPC : MonoBehaviour
         }
     }
 
-    void Attack()
+    void HandleAttackInput()
     {
         if (null == playerAttack)
         {
             return;
+        }
+
+        if (Input.GetButtonDown("SwitchAttack"))
+        {
+            playerAttack.SwitchAttack();
         }
 
         if (Input.GetButton("Fire1"))
@@ -68,6 +87,14 @@ public class PlayerInputPC : MonoBehaviour
         else if (Input.GetButtonUp("Fire1"))
         {
             playerAttack.StopFiring();
+        }
+    }
+
+    void HandleAllyInput()
+    {
+        if (Input.GetButtonDown("SummonAlly") && null != GameManager.instance)
+        {
+            GameManager.instance.SummonAlly();
         }
     }
 }

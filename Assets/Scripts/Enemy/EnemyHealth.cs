@@ -2,6 +2,9 @@
 
 public class EnemyHealth : MonoBehaviour
 {
+    [HideInInspector]
+    public EnemySpawner spawner;
+
     [HeaderAttribute("Health Properties")]
     [SerializeField]
     int maxHealth = 100;
@@ -35,9 +38,9 @@ public class EnemyHealth : MonoBehaviour
     ParticleSystem hitParticles;
 
     [HeaderAttribute("Debugging Properties")]
+    [SerializeField]
     bool isInvulnerable;
 
-    [SerializeField]
     int currentHealth;
     bool isSinking;
 

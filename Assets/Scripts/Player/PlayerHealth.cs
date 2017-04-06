@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     Animator animator;
     [SerializeField]
+    CapsuleCollider capsuleCollider;
+    [SerializeField]
     AudioSource audioSource;
 
     [HeaderAttribute("UI")]
@@ -38,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -81,6 +84,11 @@ public class PlayerHealth : MonoBehaviour
             }
 
             animator.SetTrigger("Die");
+
+            if (null != capsuleCollider)
+            {
+                capsuleCollider.enabled = false;
+            }
 
             if (null != audioSource)
             {

@@ -70,11 +70,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 118486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b7d21b94bd84341877a0eefece306f, type: 3}
+  m_Script: {fileID: 11500000, guid: 616f819dd58394a4f88f7c06b1f3b335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 5
-  range: 9
+  cooldown: 5
+  range: 5
   stinkProjectile: {fileID: 0}
   targetReticule: {fileID: 19939862}
   invalidTargetTint: {r: 1, g: 0, b: 0, a: 1}
@@ -135,7 +135,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 219214983
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2784,7 +2784,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 0
+  randomSeed: 2105919423
   InitialModule:
     serializedVersion: 3
     enabled: 1
